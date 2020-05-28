@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title> More Info </title>
+{% endblock title %}
+{% block content %}
+    {% if member %}
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                <div class="p-2"><a href="{{ member.photo.url }}"> <img src="{{ member.photo.url }}" alt="{{ member.fullname }}" class="img-thumbnail" width="150px" height="100px"> </a></div>
+            </div>
+            <div class="d-inline-flex">
+                <div class="d-flex flex-column">
+                    <div class="p-2"><strong> Full name: </strong> {{ member.fullname }}</div>
+                    <div class="p-2"><strong> Year of birth: </strong> {{ member.yearofbirth }}</div>
+                    <div class="p-2"><strong> Sex: </strong> {{ member.sex }}</div>
+                    {% if member.marriage %}
+                        <div class="p-2"><strong> Marriage status: </strong> Married </div>
+                        <div class="p-2"><strong> Year of Marriage: </strong> {{ member.yearofmarriage }} </div>
+                        <div class="p-2"><strong> Year of Marriage: </strong> {{ member.childernnum }} </div>
+                    {% else %}
+                        <div class="p-2"><strong> Marriage status: </strong> Not Married </div>
+                    {% endif %}
+                </div>
+                <div class="d-flex flex-column">
+                    <div class="p-2"><strong> Subcity: </strong> {{ member.subcity }}</div>
+                    <div class="p-2"><strong> Woreda: </strong> {{ member.woreda }}</div>
+                    <div class="p-2"><strong> House number: </strong> {{ member.housenum }} </div>
+                    <div class="p-2"><strong> Phone number: </strong> {{ member.phonenum }} </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <div class="p-2"><strong> Job: </strong> {{ member.job }}</div>
+                    {% if member.death %}
+                        <div class="p-2"><strong> Death status: </strong> Dead </div>
+                    {% else %}
+                        <div class="p-2"><strong> Death status: </strong> Not dead </div>
+                    {% endif %}
+                    <div class="p-2"><strong> Year of salvation: </strong> {{ member.yearofsalvation }}</div>
+                    {% if member.baptism %}
+                        <div class="p-2"><strong> Baptism Status: </strong> Baptised by water </div>
+                        <div class="p-2"><strong> Year of baptism: </strong> {{ member.yearofbaptism }} </div>
+                    {% else %}
+                        <div class="p-2"><strong> Baptism Status: </strong> Not baptised by water </div>
+                    {% endif %}
+                </div>
+                <div class="d-flex flex-column">
+                    <div class="p-2"><strong> Previous Church: </strong> {{ member.prevchurch }}</div>
+                </div>
+            </div>
+            <div class="btn-group btn-block">
+                <a href="{% url 'edit_member' member.id %}" class="btn btn-outline-primary"> Edit </a>
+                <a href="{% url 'delete_member' member.id %}" class="btn btn-outline-primary"> Delete </a>
+            </div>
+        </div>
+    {% endif %}
+{% endblock content %}

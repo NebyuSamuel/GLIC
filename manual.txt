@@ -1,0 +1,13 @@
+open cmd 
+
+cd Desktop\glic
+
+pipenv shell
+
+cd glic_members_management
+
+python manage.py runserver
+
+ctrl + c
+
+alt + f4

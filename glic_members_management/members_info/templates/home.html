@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title> Home </title>
+{% endblock title %}
+{% block content %}
+    <h1 class="lead text-white text-center"> Members management system  </h1>
+    </br> </br> </br>
+    <div class="container">
+        <table class="table table-responsive" id="info">
+            <thead class="text-primary">
+                <tr>
+                    <th> Full Name </th>
+                    <th> Phone Number </th>
+                    <th> Marriage </th>
+                    <th> Previous Church </th>
+                    <th> Death Status </th>
+                    <th> More info </th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if members %}
+                {% for obj in members %}
+                    <tr>
+                        <td> {{ obj.fullname }} </td>
+                        <td> {{ obj.phonenum }} </td>
+                        {% if obj.marriage %}
+                            <td class = "bg-success"> Married </td>
+                        {% else %}
+                            <td class="bg-warning"> Not Married </td>
+                        {% endif %}
+                        <td> {{ obj.prevchurch }} </td>
+                        {% if obj.death %}
+                            <td class="bg-danger"> Dead </td>
+                        {% else %}
+                            <td class="bg-info"> Not Dead </td>
+                        {% endif %}
+                        <td> <a href="{% url 'more_info' obj.id %}" class="btn btn-primary"> More info </a> </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

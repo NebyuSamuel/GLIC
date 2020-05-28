@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  {% block title %}
+  {% endblock title %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'bootstrap/DataTables/datatables.css' %}">
+  <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'bootstrap/DataTables/datatables.js' %}"></script>
+  <script src="{% static 'bootstrap/js/info.js' %}"></script>
+  <style>
+    body{
+      background-color:#84CAE7;
+    }
+    nav {
+      background-color: #84CAE7;
+    }
+  </style>
+</head>
+<body>
+</br>
+<div class="container">
+  <nav class="navbar navbar-expand-sm">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link text-white" href="{% url 'all_members' %}"> Home </a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'new_member' %}" class="nav-link text-white"> New Member </a>
+      </li>
+    </ul>
+  </nav>
+  <h1 class="text-white text-center"> Gospel Light International Church </h1>
+</div>
+{% block content %}
+{% endblock content %}
+
+</br> </br> </br> </br>
+<div class="container">
+  <div class="h1 text-center text-white"> Contact </div>
+  <div class="d-flex justify-content-between">
+    <div class="p-2 text-white">Nebyu Samuel</div>
+    <div class="p-2 text-white"> +251-923-52-09-62</div>
+    <div class="p-2 text-white">nebahanijesus12345@gmail.com </div>
+    <div> <img src="{% static 'bootstrap/images/logo.jpg' %}" alt="Logo Of Nuclues" width="200px" height="50px"> </div>
+  </div>
+</div>
+
+
+</body>
+</html>
